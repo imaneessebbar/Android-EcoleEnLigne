@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.ecolesenlignes">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:name="com.example.ecolesenlignes.EcoleEnLigne"
+        android:theme="@style/Theme.EcoleEnLigne"
+        >
+
+        <activity android:name="com.example.ecolesenlignes.Presentation" />
+        <activity android:name="com.example.ecolesenlignes.ui.ListeEnfant.DetailEnfantActivity" />
+        <activity android:name="com.example.ecolesenlignes.ui.Cours.CoursEnLigneActivity" />
+        <activity android:name="com.example.ecolesenlignes.ui.Cours.VisualiserpdfActivity" />
+        <activity android:name="com.example.ecolesenlignes.ui.Cours.Quiz" />
+
+        <service
+            android:name="com.example.ecolesenlignes.NotificationService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver android:name="com.example.ecolesenlignes.Appel">
+            <intent-filter>
+                <action android:name="com.example.ecoleenligne" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.example.ecolesenlignes.Broadcast">
+
+        </receiver>
+
+        <service android:name="com.example.ecolesenlignes.FirebaseService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name="com.example.ecolesenlignes.ui.Cours.CoursMathActivity" />
+        <activity android:name="com.example.ecolesenlignes.PayementActivity" />
+        <activity android:name="com.example.ecolesenlignes.InscriptionParentEnfantInformationActivity" />
+        <activity android:name="com.example.ecolesenlignes.InscriptionEnfantActivity" />
+        <activity android:name="com.example.ecolesenlignes.InscriptionParentEnfantActivity" />
+        <activity android:name="com.example.ecolesenlignes.InscriptionParentActivity" />
+        <activity android:name="com.example.ecolesenlignes.EcranDemmarageActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.ecolesenlignes.MainActivity"
+            android:label="@string/title_activity_main" />
+        <activity android:name="com.example.ecolesenlignes.InscriptionActivity" />
+        <activity
+            android:name="com.example.ecolesenlignes.LoginActivity"
+            android:focusableInTouchMode="true"
+            android:windowSoftInputMode="stateHidden" />
+
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
+    </application>
+</manifest>
